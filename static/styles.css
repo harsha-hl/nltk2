@@ -1,0 +1,30 @@
+body {
+  margin:0;
+  padding:0;
+  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+}
+
+.highlight {
+  background-color:yellow;
+  }   
+  
+#imageSpace{
+    position: relative;
+}
+  .parent {
+    display: inline;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .image1 {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .image2 {
+    position: absolute;
+    top: -10px;
+    left: 9px;
+  }
+

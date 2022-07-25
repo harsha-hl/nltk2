@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Titration
+{% endblock %}
+
+{% block main %}
+    <input type="hidden" id="myData" value="{{objs}}">
+    <input type="hidden" id="para" value="{{para}}">
+    <h3 class="heading">Titration</h3>
+    <p id="statement"></p>
+
+    <select id="selectLanguages">
+    </select>
+    <button id="playpause"><i class="fa-solid fa-pause"></i></button>
+
+    <div id="imageSpace"></div>
+    <button onclick="prevSentence()" class="butn">Previous</button>
+    <button onclick="nextSentence()" class="butn">Next</button>
+    <p id="expDetails"> </p>
+{% endblock %}

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+   
+<data>
+<noun>
+    <obj name="beaker"> beaker </obj>
+    <obj name="burette"> burette </obj>
+    <obj name="pipette"> pipette </obj>
+    <obj name="burner"> bunsenburner </obj>
+    <obj name="roundbottomflask"> roundbottomflask </obj>
+    <obj name="flask"> conicalflask </obj>
+    <obj name="tripodstand"> tripodstand </obj>
+    <obj name="wiregauze"> wiregauze </obj>
+    <obj name="tube"> testtube </obj>
+    <obj name="paper"> paper </obj>
+    <obj name="precipitate">ppt </obj>
+    <obj name="dish"> petri </obj>
+    <obj name="container"> container </obj>
+    <obj name="gas"> gas </obj>
+    <obj name="ring"> ring </obj>
+    <obj name="rod"> rod </obj>
+</noun>
+<position>
+    <pos name= "under" x="500" y="-710"> under </pos>
+    <pos name= "over" x="500" y="-450"> over </pos>
+    <pos name= "above" x="500" y="-450"> above </pos>
+    <pos name= "below" x="500" y="-710"> below </pos>
+    <pos name= "near" x="500" y="-600"> near </pos>
+    <pos name= "in" x="500" y="-600"> in </pos>
+    <pos name= "inside" x="500" y="-600"> in </pos>
+    <pos name= "on" x="500" y="-450"> on </pos>
+    
+</position>
+
+<image>
+    <img name="beaker" src="static/beaker.png"> beaker </img>
+    <img name="burette" src="static/burette.png"> burette </img>
+    <img name="pipette" src=""> pipette </img>
+    <img name="burner" src="static/bunsen_burner.png"> bunsenburner </img>
+    <img name="roundbottomflask" src="static/round_bottom_flask.png"> roundbottomflask </img>
+    <img name="flask" src="static/conical.png"> conicalflask </img>
+    <img name="tripodstand" src="static/tripod.png"> tripodstand </img>
+    <img name="wiregauze" src=""> wiregauze </img>
+    <img name="tube" src="static/fullTestTube.png"> testtube </img>
+    <img name="precipitate" src="static/pptTestTube.png"> ppt </img>
+    <img name="dish" src="static/dish.png"> petri </img>
+    <img name="container" src="static/beaker.png"> container </img>
+    <img name="gas" src="static/gas.png"> gas </img>
+    <img name="ring" src="static/ring.png"> ring </img>
+    <img name="rod" src="static/rod.png"> rod </img>
+</image>
+
+<verbs>
+    <verb name="pour" deg="45" > pour </verb>
+    <verb name="place" deg="0"> place </verb>
+    <verb name="add"> add </verb>
+
+</verbs>
+<colours>
+    <colour name="green" hex="#368370"> green </colour>
+    <colour name="blue"  hex="#151871"> blue </colour>
+    <colour name="black" hex="#565656"> black </colour>
+    <colour name="brown" hex="#5C4033"> brown </colour>
+    <colour name="white" hex="#ffffff"> white </colour>
+    <colour name="yellow" hex="#ffff00"> yellow </colour>
+    <colour name="purple" hex="#A020F0"> purple </colour>
+
+</colours>
+
+</data>    
+
