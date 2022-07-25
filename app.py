@@ -21,7 +21,7 @@ def experiment():
   #length = text_preprocessing.sen()    #var is the no of sentences in the paragraph
   qwe=text_preprocessing.main()   # qwe={(name:testtube,pos:up),(name:beaker,pos:down)}
   var = text_preprocessing.sen()
-  apparatus = text_preprocessing.apparatus() 
+  apparatus = ""
   print("this is var",var)
   for i in range(var):    #if return render_template is within this for loop only the objects of first sentence are displayed
     print("this is newest",qwe[i])   #qwe[i] is each sentence
@@ -42,9 +42,9 @@ def experiment1():
   f = open("static/text/basic_radical.txt", "r")
   para= f.read()
   #length = text_preprocessing.sen()    #var is the no of sentences in the paragraph
-  qwe=text_preprocessing.main1()   # qwe={(name:testtube,pos:up),(name:beaker,pos:down)}
-  var = text_preprocessing.sen1()
-  apparatus = text_preprocessing.apparatus() 
+  qwe=text_preprocessing.main()   # qwe={(name:testtube,pos:up),(name:beaker,pos:down)}
+  var = text_preprocessing.sen()
+  apparatus = ""
   print("this is var",var)
   for i in range(var):    #if return render_template is within this for loop only the objects of first sentence are displayed
     print("this is newest",qwe[i])   #qwe[i] is each sentence
@@ -66,9 +66,9 @@ def experiment2():
   f = open("static/text/titration.txt", "r")
   para= f.read()
   #length = text_preprocessing.sen()    #var is the no of sentences in the paragraph
-  qwe=text_preprocessing.main2()   # qwe={(name:testtube,pos:up),(name:beaker,pos:down)}
-  var = text_preprocessing.sen2()
-  apparatus = text_preprocessing.apparatus() 
+  qwe=text_preprocessing.main()   # qwe={(name:testtube,pos:up),(name:beaker,pos:down)}
+  var = text_preprocessing.sen()
+  apparatus = "" 
   print("this is var",var)
   for i in range(var):    #if return render_template is within this for loop only the objects of first sentence are displayed
     print("this is newest",qwe[i])   #qwe[i] is each sentence
