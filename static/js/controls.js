@@ -46,12 +46,17 @@ function nextSentence(){
   }
 }
 
+function randomColor(){ 
+  return ("#" + Math.floor(Math.random()*16777215).toString(16)); 
+}
+
 function decodeSentence()
 {
 ///////////////////////////
 
     const voiceSelect = document.querySelector("#selectLanguages");
     const playpausebtn = document.querySelector("#playpause");
+    playpausebtn.innerHTML = "<i class='fa-solid fa-pause'></i>";
 
     populateVoiceList();
 
@@ -80,10 +85,12 @@ function decodeSentence()
 
       higlightWord = function (text, index) {
         var words = text.match(/\w+/g);
+        // let words = text.split(" ");
+        words[words.length-1] += ".";
         if (index >= words.length) {
             return text;
         }
-        words.splice(index, 0, "<span class='highlight'>");
+        words.splice(index, 0, `<span class='highlight' style='color: ${randomColor()}'>`);
         words.splice(index + 2, 0, "</span>");
         return words.join(' ');
     };
@@ -145,7 +152,11 @@ function decodeSentence()
     
     expDetails = document.getElementById("expDetails");
     expDetails.innerHTML = '';
-    document.getElementById("statement").innerHTML = toDisplaySentences[sentence_index];
+    const statement = document.getElementById("statement"); 
+    statement.innerHTML = toDisplaySentences[sentence_index]; 
+    statement.style.color = randomColor();
+    const step = document.getElementById("step"); 
+    step.innerHTML = "Step : " + (sentence_index + 1);
     let sentence = sentences[sentence_index];
     var k = sentence.length;                     //sentence has the objects in one sentence
     console.log("len of sentence in next"+k);

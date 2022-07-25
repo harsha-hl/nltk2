@@ -1,21 +1,39 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} 
 
-{% block title %}
-    Titration
-{% endblock %}
+{% block title %} Titration {% endblock %} 
 
-{% block main %}
-    <input type="hidden" id="myData" value="{{objs}}">
-    <input type="hidden" id="para" value="{{para}}">
-    <h3 class="heading">Titration</h3>
-    <p id="statement"></p>
-
-    <select id="selectLanguages">
-    </select>
+{% block main %} 
+<input type="hidden" id="myData" value="{{objs}}" />
+<input type="hidden" id="para" value="{{para}}" />
+<h3 class="heading">Titration</h3>
+<div id="space" style="text-align: center; padding: 10px 30px">
+  <div
+    id="imageSpace"
+    style="background-color: red; display: inline-block; width: 60%"
+  >
+    Hello sdflkmsl wl lwk lcwdkc lwkc lwd clwd clwd clkwd clwdc wdc Hello
+    sdflkmsl wl lwk lcwdkc lwkc lwd clwd clwd clkwd clwdc wdc Hello sdflkmsl wl
+    lwk lcwdkc lwkc lwd clwd clwd clkwd clwdc wdHello sdflkmsl wl lwk lcwdkc
+    lwkc lwd clwd clwd clkwd clwdc wdc Hello sdflkmsl wl lwk lcwdkc lwkc lwd
+    clwd clwd clkwd clwdc wdc Hello sdflkmsl wl lwk lcwdkc lwkc lwd clwd clwd
+    clkwd clwdc wdc Hello sdflkmsl wl lwk lcwdkc lwkc lwd clwd clwd clkwd clwdc
+    wdHello sdflkmsl wl lwk lcwdkc lwkc lwd clwd clwd clkwd clwdc wdc Hello
+    sdflkmsl wl lwk lcwdkc lwkc lwd clwd clwd clkwd clwdc wdc Hello sdflkmsl wl
+    lwk lcwdkc lwkc lwd clwd clwd clkwd clwdc wdc Hello sdflkmsl wl lwk lcwdkc
+    lwkc lwd clwd clwd clkwd clwdc wdHello sdflkmsl wl lwk lcwdkc lwkc lwd clwd
+    clwd clkwd clwdc wdc
+  </div>
+  <div id="textSpace">
+    <hr>
+    <p id="step"></p>
+    <hr>
+    <p id="statement">
+    </p>
+    <select id="selectLanguages"></select>
     <button id="playpause"><i class="fa-solid fa-pause"></i></button>
-
-    <div id="imageSpace"></div>
     <button onclick="prevSentence()" class="butn">Previous</button>
     <button onclick="nextSentence()" class="butn">Next</button>
-    <p id="expDetails"> </p>
+  </div>
+</div>
+<p id="expDetails" style="margin-top: 700px"></p>
 {% endblock %}

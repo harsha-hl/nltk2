@@ -5,7 +5,7 @@ body {
 }
 
 .highlight {
-  background-color:yellow;
+  background-color: #D6EFED;
   }   
   
 #imageSpace{
@@ -28,3 +28,18 @@ body {
     left: 9px;
   }
 
+  #statement{
+    padding: 10px 30px;
+    min-height: 100px;
+  }
+
+  #textSpace{ 
+    position: relative; 
+    top: 450px; 
+    height: 400px; 
+    background-color: #eeeeee; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    border-radius: 7px; 
+    display: inline-block; 
+    width: 39%; 
+  }

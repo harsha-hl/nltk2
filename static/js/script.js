@@ -2,6 +2,7 @@ var sentence_index = 0, numOfSentences, sentences=[], o, paragraph, toDisplaySen
 const synth = window.speechSynthesis;
 var voices = []
 document.addEventListener("DOMContentLoaded", function (){
+  synth.cancel();
   preprocess();  
   decodeSentence();
   });

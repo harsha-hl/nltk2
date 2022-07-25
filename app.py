@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 
 @app.route("/experiment")
-def experiment():
+def experiment(): 
   objects = []    # a Python object (dict):
   new=[]
   check_box=[] 
@@ -82,4 +82,4 @@ def experiment2():
   return render_template("experimentPage.html", objs = new, para=para,abc=check_box, instruments = apparatus)  
 
 if __name__=='__main__':
-  app.run(debug=True,port=5000)
+  app.run(debug=True,port=5000) 
