@@ -5,7 +5,7 @@
 {% block main %} 
 <input type="hidden" id="myData" value="{{objs}}" />
 <input type="hidden" id="para" value="{{para}}" />
-<h3 class="heading">Titration</h3>
+<h3 class="heading">Salt Analysis</h3>
 <div id="space">
   <div id="imageSpace"> 
   </div>
@@ -15,10 +15,12 @@
     <hr>
     <p id="statement">
     </p>
+    <button onclick="prevSentence()" class="controlButn">Previous</button>
+    <button onclick="nextSentence()" class="controlButn">Next</button>
+    <br>
     <select id="selectLanguages"></select>
     <button id="playpause"><i class="fa-solid fa-pause"></i></button>
-    <button onclick="prevSentence()" class="butn">Previous</button>
-    <button onclick="nextSentence()" class="butn">Next</button>
+
   </div>
 </div>
 <p id="expDetails" style="margin-top: 700px"></p>

@@ -56,6 +56,14 @@ function nextSentence(){
   }
 }
 
+function getRandomColor() {
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+      color += Math.floor(Math.random() * 10);
+  }
+  return color;
+}
+
 function randomColor(){ 
   return ("#" + Math.floor(Math.random()*16777215).toString(16)); 
 }
@@ -168,7 +176,7 @@ function decodeSentence()
     expDetails.innerHTML = '';
     const statement = document.getElementById("statement"); 
     statement.innerHTML = toDisplaySentences[sentence_index]; 
-    statement.style.color = randomColor();
+    statement.style.color = getRandomColor();
     const step = document.getElementById("step"); 
     step.innerHTML = "Step : " + (sentence_index + 1);
     let sentence = sentences[sentence_index];

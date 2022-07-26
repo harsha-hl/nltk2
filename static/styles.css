@@ -5,12 +5,18 @@ body {
 }
 
 .highlight {
-  background-color: #D6EFED;
+  background-color: #dbefff;
   }   
+
+.heading{
+  font-family: 'Merriweather Sans', sans-serif;
+  text-align: center;
+  font-size: 50px;
+}
   
 #imageSpace{
     position: relative;
-    top: -300px;
+    top: -550px;
     display: inline-block; 
     width: 60%
 }
@@ -32,8 +38,17 @@ body {
   }
 
   #statement{
-    padding: 10px 30px;
-    min-height: 100px;
+    font-size: 30px;
+    font-family: 'Kalam', cursive;
+    /* font-family: 'Edu TAS Beginner', cursive; */
+    padding: 10px;
+    min-height: 50px;
+  }
+
+  #step{
+    font-family: 'Merienda One', cursive;
+    font-size: 30px;
+    color: #017bfe;
   }
 
   #space{
@@ -42,14 +57,15 @@ body {
   }
 
   #textSpace{ 
+    padding: 20px;
     position: relative; 
-    top: 150px; 
-    height: 400px; 
-    background-color: #eeeeee; 
+    top: 75px; 
+    height: fit-content; 
+    background-color: white ; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
     border-radius: 7px; 
     display: inline-block; 
-    width: 39%; 
+    width: 35%; 
   }
 
   hr{
@@ -62,3 +78,49 @@ body {
     background-image: -ms-linear-gradient(left, #ccc, rgb(49, 49, 49), #ccc);
     background-image: -o-linear-gradient(left, #ccc, rgb(49, 49, 49), #ccc);
     }
+
+    #selectLanguages{
+      /* background-color: white; */
+      color: black;
+      padding: 20px 30px;
+      border: none;
+      border-radius: 3px;
+    }
+
+    #selectLanguages:hover{
+      background-color: black;
+      color: white;
+    }
+
+    #playpause{
+      border: none;
+      padding: 15px;
+      background-color: transparent;
+      color: rgb(0, 0, 0);
+      font-size: 30px;
+      border-radius: 100%;
+    }
+
+    #playpause:hover{
+      background-color: #eeeeee;
+    }
+
+    select {
+      -moz-appearance:none; /* Firefox */
+      -webkit-appearance:none; /* Safari and Chrome */
+      appearance:none;
+  }
+
+.controlButn{
+  border: 0;
+  background-color: #017bfe;
+  color: white;
+  font-size: 20px;
+  padding: 15px 30px;
+  border-radius: 5px;
+  margin: 0 50px 20px;
+}
+
+.controlButn:hover{
+  background-color: #0061c8;
+}
