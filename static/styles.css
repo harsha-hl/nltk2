@@ -10,6 +10,9 @@ body {
   
 #imageSpace{
     position: relative;
+    top: -300px;
+    display: inline-block; 
+    width: 60%
 }
   .parent {
     display: inline;
@@ -33,9 +36,14 @@ body {
     min-height: 100px;
   }
 
+  #space{
+    text-align: center; 
+    padding: 10px 30px;
+  }
+
   #textSpace{ 
     position: relative; 
-    top: 450px; 
+    top: 150px; 
     height: 400px; 
     background-color: #eeeeee; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
@@ -43,3 +51,14 @@ body {
     display: inline-block; 
     width: 39%; 
   }
+
+  hr{
+    border: 0;
+    height: 1.5px;
+    background: #333;
+    width: 60%;
+    background-image: -webkit-linear-gradient(left, #ccc, rgb(49, 49, 49), #ccc);
+    background-image: -moz-linear-gradient(left, #ccc, rgb(49, 49, 49), #ccc);
+    background-image: -ms-linear-gradient(left, #ccc, rgb(49, 49, 49), #ccc);
+    background-image: -o-linear-gradient(left, #ccc, rgb(49, 49, 49), #ccc);
+    }

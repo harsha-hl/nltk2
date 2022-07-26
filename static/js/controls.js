@@ -100,7 +100,8 @@ function decodeSentence()
         if (index >= words.length) {
             return text;
         }
-        words.splice(index, 0, `<span class='highlight' style='color: ${randomColor()}'>`);
+        // ${randomColor()}
+        words.splice(index, 0, `<span class='highlight' style='color: #3330E4'>`);
         words.splice(index + 2, 0, "</span>");
         return words.join(' ');
     };

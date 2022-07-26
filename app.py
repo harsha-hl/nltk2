@@ -63,7 +63,7 @@ def experiment2():
   objects = []    # a Python object (dict):
   new=[]
   check_box=[] 
-  f = open("static/text/titration.txt", "r")
+  f = open("static/text/salt_analysis.txt", "r")
   para= f.read()
   #length = text_preprocessing.sen()    #var is the no of sentences in the paragraph
   qwe=text_preprocessing.main()   # qwe={(name:testtube,pos:up),(name:beaker,pos:down)}
