@@ -1,3 +1,6 @@
+# Temporary file for backup
+
+
 import nltk
 #nltk.download('punkt',halt_on_error=False)
 #nltk.download('stopwords', halt_on_error=False)
@@ -61,8 +64,8 @@ def getObjects(line):
     check_verb = ["add", "pour"]
     chemical=""
     chemicals={}
-    chemical_temp=""     #change
-    chemical_object=""   #change
+    chemical_temp=[]   #to hold temp values
+    chemical_object=[]
 
     for i in tagged:
 
@@ -78,10 +81,10 @@ def getObjects(line):
         try:
             chemical+= acids[i[0]]
             if temp!="":
-                chemicals[temp]=chemical+" acid"     #change
+                chemicals[temp].append(chemical+" acid")
                 
             else:
-                chemical_temp=chemical+" acid"       #change
+                chemical_temp.append(chemical+" acid")
                
             
             chemical=""
@@ -94,10 +97,10 @@ def getObjects(line):
             print(i[0],"is i of 0")
             print(chemical,"Ae all the chemicals")
             if temp!="":
-                chemicals[temp] = chemical       #change
+                chemicals[temp].append(chemical)
                 print("This is also final", chemicals)
             else:
-                chemical_temp = chemical        #changw
+                chemical_temp.append(chemical)
                 print("THIS IS FINAL", chemical_temp)
             chemical=""
         except:
@@ -118,9 +121,7 @@ def getObjects(line):
                     
                     colours[i[0]] = colour_temp
                     colour_temp=""   
-
-                #if len(chemical_temp)!=0 and temp=="":     #change
-                if chemical_temp!="" and temp=="":
+                if len(chemical_temp)!=0 and temp=="":
                     chemicals[i[0]] = chemical_temp
                     print("THE LIST FOR CHEMICALS", chemicals)                
                 temp=i[0]
@@ -207,7 +208,7 @@ def getObjects(line):
         x.append({"name":name, "fill":fill,"src":src, "colour":colour,"verb":verb,"positionx":posx, "positiony":posy, "chemicals":chemical_object})
         posx=""; posy=""
         verb="default"
-        chemical_object=""   #change
+        chemical_object=[]
         if i==1:
             temp_array = x[1]
             x[1]= x[0]

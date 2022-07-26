@@ -1,4 +1,4 @@
-function position(x,y,deg,path,hex_image, len)
+function position(x,y,deg,path,hex_image, len, chemical)
 {
   const space = document.getElementById("imageSpace");
   const img1 = document.createElement('img');
@@ -13,6 +13,16 @@ img1.style.height = "auto";
   img1.setAttribute('id', 'im');
   img1.style.transform = "rotate(" + deg + "deg)";
   space.appendChild(img1);
+  const caption = document.createElement('p');
+  caption.innerText=chemical;
+  caption.style.width ="auto"
+  caption.style.height= "auto"
+  caption.style.position = "absolute";
+  caption.style.left = x + "px";
+  var caption_pos = y-30;
+  caption.style.bottom = caption_pos+"px";
+  space.appendChild(caption);
+
 }
 
 function position_new(x,y,deg,path, len)
@@ -147,8 +157,11 @@ function decodeSentence()
 
 
     let images = Array.prototype.slice.call(document.getElementById("imageSpace").getElementsByTagName("img"));
+    let caption = Array.prototype.slice.call(document.getElementById("imageSpace").getElementsByTagName("p"));
     for(let i=0;i<images.length;i++)
       images[i].remove();
+    for(let i=0; i<caption.length; i++)
+      caption[i].remove();
     
     expDetails = document.getElementById("expDetails");
     expDetails.innerHTML = '';
@@ -188,7 +201,6 @@ function decodeSentence()
           images1[i].remove();
         let sents = sentences[no_object];
         var le=sents.length;
-       
         for(var t=0;t<le;t++)
         {
             console.log("i am in the new pos"+sents[t].name);
@@ -196,21 +208,25 @@ function decodeSentence()
           var x_new=sents[t].positionx;
           var y_new=sents[t].positiony;
           var hex_image_new=sents[t].colour;
+          var chemical = sents[t].chemicals;
+          console.log("Chemicals in empty sentence"+ chemical);
+          
+
                   console.log("This is hex of image"+hex_image_new);
                   if(sents[t].name === 'gas')
                   {
                     console.log("in sents for gas");
                     var ka = "-380";
                     var kax = "300";
-                    position(kax,ka,z,sents[t].src,hex_image_new, t);
+                    position(kax,ka,z,sents[t].src,hex_image_new, t, chemical);
                   }
                   else if(sents[t].name === 'burette')
                   {
                      var buu = "330";
-                     position(buu,y,z,sents[t].src,hex_image,t);
+                     position(buu,y,z,sents[t].src,hex_image,t, chemical);
                   }
                   else{
-                  position(x_new,y_new,z,sents[t].src,hex_image_new, t);
+                  position(x_new,y_new,z,sents[t].src,hex_image_new, t, chemical);
                   }
                   var ppt_outline = (sents[t].name).localeCompare("precipitate");
                  if(sents[t].name !== 'precipitate' && sents[t].name !== 'gas' && sents[t].name !== 'ring')
@@ -250,22 +266,24 @@ function decodeSentence()
                     console.log(" heyyy i am in up sentence[p].src"+sentence[p].src);
                   console.log(" heyyy i am in  sentence[p].src"+sentence[p].src);
                   var hex_image=sentence[p].colour;
+                  var chemical = sentence[p].chemicals;
+                  console.log("Chemical of sentence "+p+"is "+": "+ chemical)
                   console.log("This is hex of image"+hex_image);
                   if(sentence[p].name === 'gas')
                   {
                     var ga = "-380";
                     var gax = "300";
-                    position(gax,ga,z,sentence[p].src,hex_image, k);
+                    position(gax,ga,z,sentence[p].src,hex_image, k, chemical);
                   }
 
                   else if(sentence[p].name === 'burette')
                   {
                      var buu = "330";
-                     position(buu,y,z,sentence[p].src,hex_image,k);
+                     position(buu,y,z,sentence[p].src,hex_image,k,chemical);
                   }
                   
                   else{
-                  position(x,y,z,sentence[p].src,hex_image, k);
+                  position(x,y,z,sentence[p].src,hex_image, k,chemical);
                   }
 
 
