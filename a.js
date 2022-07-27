@@ -88,20 +88,27 @@ function randomColor(){
   return ("#" + Math.floor(Math.random()*16777215).toString(16));
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
 
-  const text = "Pour K234(d) dilute HCl from beaker to test tube.";
-  const colorWords = text.split(" ");
-  const statement = document.getElementById('statement');
-  statement.innerHTML = " ";
-  colorWords.forEach(word => {
-    span = document.createElement('span');
-    span.innerHTML = word + " ";
-    span.style.color = randomColor();
-    // span.style.backgroundColor = randomColor();
-    statement.appendChild(span);
+  var myCanvas = document.getElementById('confetti');
+var a = 1;
+if(a===1){
+  var myConfetti = confetti.create(myCanvas, {
+    resize: true,
+    useWorker: true
   });
+  myConfetti({
+    particleCount: 350,
+    angle: 90,
+    spread: 180,
+    startVelocity: 80,
+    origin:{
+      x : 0.5,
+      y : 1.25
+    },
+    colors : ["#ff2800", "#A020F0","#64b5f6","#7b1fa2", "#ff9800", "#88ffff", "#e1ffb1", "#880e4f", "#4dd0e1", "#43a047", "#d81b60", "#00227b"],
+  });
+}
 
-  const spans = document.querySelectorAll('#statement span');
-  spans[3].style.backgroundColor = "#D6EFED";
 });

@@ -68,6 +68,9 @@ function randomColor(){
   return ("#" + Math.floor(Math.random()*16777215).toString(16)); 
 }
 
+
+
+
 function decodeSentence()
 {
 ///////////////////////////
@@ -77,6 +80,40 @@ function decodeSentence()
     playpausebtn.innerHTML = "<i class='fa-solid fa-pause'></i>";
 
     populateVoiceList();
+
+    const progressbar = document.querySelector(".progress");
+
+    const changeProgress = (progress) => {
+      progressbar.style.width = `${progress}%`;
+    };
+
+    console.log(toDisplaySentences.length);
+    console.log(sentence_index+1)
+    changeProgress((sentence_index+1)/toDisplaySentences.length*100);
+    var myCanvas = document.getElementById('confetti');
+    if(sentence_index+1===toDisplaySentences.length){
+      var myConfetti = confetti.create(myCanvas, {
+        resize: true,
+        useWorker: true
+      });
+      myConfetti({
+        particleCount: 500,
+        angle: 90,
+        spread: 180,
+        startVelocity: 90,
+        drift: -1,
+        origin:{
+          x : 0.5,
+          y : 1.25
+        },
+        zIndex: 200,
+        colors : ["#ff2800", "#A020F0","#64b5f6","#7b1fa2", "#ff9800", "#88ffff", "#e1ffb1", "#880e4f", "#4dd0e1", "#43a047", "#d81b60", "#00227b"],
+      });
+    }
+
+
+
+
 
     if (speechSynthesis.onvoiceschanged !== undefined) {
       speechSynthesis.onvoiceschanged = populateVoiceList;

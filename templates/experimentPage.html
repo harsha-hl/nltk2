@@ -1,11 +1,16 @@
 {% extends "layout.html" %} 
 
-{% block title %} Titration {% endblock %} 
+{% block title %} Salt Analysis {% endblock %} 
 
 {% block main %} 
 <input type="hidden" id="myData" value="{{objs}}" />
 <input type="hidden" id="para" value="{{para}}" />
+<canvas id="confetti">
+</canvas>
 <h3 class="heading">Salt Analysis</h3>
+<div class="progress-container">
+  <div class="progress"></div>
+</div>
 <div id="space">
   <div id="imageSpace"> 
   </div>
@@ -20,7 +25,6 @@
     <br>
     <select id="selectLanguages"></select>
     <button id="playpause"><i class="fa-solid fa-pause"></i></button>
-
   </div>
 </div>
 <p id="expDetails" style="margin-top: 700px"></p>
