@@ -1,4 +1,4 @@
-import nltk
+from cgitb import text
 #nltk.download('punkt',halt_on_error=False)
 #nltk.download('stopwords', halt_on_error=False)
 #nltk.download('wordnet',halt_on_error=False)
@@ -16,18 +16,10 @@ anion = {'nitrate': 'nitrate', 'sulphate':'sulphate', 'phosphate':'phosphate', '
 cation = {'copper':'copper','ferrous': 'ferrous', 'ferric':'ferric', 'sodium':'sodium', 'potassium':'potassium', 'ammonium':'ammonium', 'barium':'barium', 'strontium':'strontium','calcium':'calcium','hydrogen':'hydrogen'}
 acids={'sulphuric':'sulphuric', 'hydrochloric':'hydrochloric', 'nitric':'nitric'}
 
+f = open("static/text/basic_radical.txt", "r")
+text= f.read()
 
 a = []
-global text, text2, text3
-f = open("static/text/titration.txt", "r")
-text = f.read()
-
-f = open("static/text/basic_radical.txt", "r")
-text2= f.read()
-
-f= open("static/text/salt_analysis.txt", "r")
-text3 = f.read()
-
 def getObjects(line):
     line = re.sub(r"[^a-zA-Z0-9]", " ", line.lower())
     words = line.split()
@@ -37,7 +29,6 @@ def getObjects(line):
     
     lemmed = [WordNetLemmatizer().lemmatize(w) for w in filtered_sentence]
 
-    print("\n\nPOS tagged-\n")
     tagged = pos_tag(words)   #should have been lemmed not words
     print(tagged)
     with open('data.xml', 'r') as f:
@@ -67,11 +58,7 @@ def getObjects(line):
     for i in tagged:
 
         try:
-            
-            chemical+=cation[i[0]]
-            print(i[0],"is i of 0")
-            print(chemical,"Ae all the chemicals")
-        
+            chemical+=cation[i[0]]  
         except:
             pass
 
@@ -91,14 +78,10 @@ def getObjects(line):
 
         try:
             chemical+=" " + anion[i[0]]
-            print(i[0],"is i of 0")
-            print(chemical,"Ae all the chemicals")
             if temp!="":
                 chemicals[temp] = chemical       #change
-                print("This is also final", chemicals)
             else:
                 chemical_temp = chemical        #changw
-                print("THIS IS FINAL", chemical_temp)
             chemical=""
         except:
             pass
@@ -121,8 +104,7 @@ def getObjects(line):
 
                 #if len(chemical_temp)!=0 and temp=="":     #change
                 if chemical_temp!="" and temp=="":
-                    chemicals[i[0]] = chemical_temp
-                    print("THE LIST FOR CHEMICALS", chemicals)                
+                    chemicals[i[0]] = chemical_temp           
                 temp=i[0]
                 
                 count+=1
@@ -186,7 +168,6 @@ def getObjects(line):
            pass
         try:
             chemical_object = chemicals[objects[i]]
-            print("\n\n\n\n\n typeeeeee", type(chemical_object) )
         except:
             pass
         if posx == "" or posy=="":
@@ -216,24 +197,14 @@ def getObjects(line):
     return x
 
 
-def sen():
-    #abc = sent_tokenize(text2)
-    abc = sent_tokenize(text3)
-    sent_len=len(abc)
-    return(sent_len) 
-
-
-def main():         
-    #sentence = sent_tokenize(text)
-    sentence = sent_tokenize(text3)
-    #print(sent_tokenize(text))
-    print(sent_tokenize(text3))
+def main(text):         
+    sentence = sent_tokenize(text)
+    print(sent_tokenize(text))
     obj=[]
     for i in sentence:
         x=getObjects(i)
         obj.append(x)
-    print("Final output-\n",obj)
     return obj
         
-main()
+main(text)
 

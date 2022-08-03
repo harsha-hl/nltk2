@@ -11,7 +11,7 @@ body {
 .heading{
   font-family: 'Merriweather Sans', sans-serif;
   text-align: center;
-  font-size: 50px;
+  font-size: 45px;
 }
   
 #imageSpace{
@@ -47,7 +47,7 @@ body {
 
   #step{
     font-family: 'Merienda One', cursive;
-    font-size: 30px;
+    font-size: 25px;
     color: #017bfe;
   }
 
@@ -137,7 +137,7 @@ canvas{
   /* position: relative; */
   margin-left: 35px;
   margin-top: -30px;
-  margin-bottom: 70px;
+  margin-bottom: 20px;
   height: 0.3rem;
   width: 85rem;
   border-radius: 0.4rem;
@@ -154,4 +154,11 @@ canvas{
   background: #4df14a;
 
   transition: width 0.4s ease;
+}
+
+#group{
+  color:#017bfe;
+  
+  padding-left: 10px;
+  font-size: 25px;
 }

@@ -5,13 +5,15 @@
 {% block main %} 
 <input type="hidden" id="myData" value="{{objs}}" />
 <input type="hidden" id="para" value="{{para}}" />
+<input type="hidden" id="groups" value="{{groups}}"/>
 <canvas id="confetti">
 </canvas>
-<h3 class="heading">Salt Analysis</h3>
+<h3 class="heading">{{heading}}</h3>
 <div class="progress-container">
   <div class="progress"></div>
 </div>
 <div id="space">
+  <p id="group"></p>
   <div id="imageSpace"> 
   </div>
   <div id="textSpace">

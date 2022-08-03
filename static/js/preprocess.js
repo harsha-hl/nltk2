@@ -1,6 +1,9 @@
 function preprocess(){
     const para = document.getElementById('para').value;
     toDisplaySentences = para.match( /[^\.!\?]+[\.!\?]+/g );
+    const groups = document.getElementById('groups').value;
+    toDisplayGroups = groups.match(/[^\.!\?]+[\.!\?]+/g);
+    console.log("\n\n This is groups:-\n "+ toDisplayGroups[0]);
     var objs = document.getElementById('myData').value;
     objs = objs.slice(1, objs.length-1);
     o = [];

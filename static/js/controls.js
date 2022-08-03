@@ -73,7 +73,7 @@ function randomColor(){
 
 function decodeSentence()
 {
-///////////////////////////
+
 
     const voiceSelect = document.querySelector("#selectLanguages");
     const playpausebtn = document.querySelector("#playpause");
@@ -91,7 +91,9 @@ function decodeSentence()
     console.log(sentence_index+1)
     changeProgress((sentence_index+1)/toDisplaySentences.length*100);
     var myCanvas = document.getElementById('confetti');
-    if(sentence_index+1===toDisplaySentences.length){
+    console.log("\n\n\nDisplay sentences"+ toDisplaySentences[sentence_index]);
+    console.log("\n True or false "+ toDisplaySentences[sentence_index].includes("confirm"));
+    if(toDisplaySentences[sentence_index].includes("confirm")){               //change here
       var myConfetti = confetti.create(myCanvas, {
         resize: true,
         useWorker: true
@@ -110,10 +112,6 @@ function decodeSentence()
         colors : ["#ff2800", "#A020F0","#64b5f6","#7b1fa2", "#ff9800", "#88ffff", "#e1ffb1", "#880e4f", "#4dd0e1", "#43a047", "#d81b60", "#00227b"],
       });
     }
-
-
-
-
 
     if (speechSynthesis.onvoiceschanged !== undefined) {
       speechSynthesis.onvoiceschanged = populateVoiceList;
@@ -200,7 +198,9 @@ function decodeSentence()
       }  
 
 ///////////////////////////
-
+   
+    group.innerText= toDisplayGroups[sentence_index];
+    
 
     let images = Array.prototype.slice.call(document.getElementById("imageSpace").getElementsByTagName("img"));
     let caption = Array.prototype.slice.call(document.getElementById("imageSpace").getElementsByTagName("p"));
