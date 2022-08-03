@@ -20,7 +20,7 @@ def experiment():
   check_box=[] 
   f = open("static/text/titration.txt", "r")
   para= f.read()
-  f = open("static/text/groups_sa.txt", "r")
+  f = open("static/text/groups_t.txt", "r")
   groups = f.read()
   qwe=text_preprocessing.main(para)   
   apparatus = []
@@ -65,7 +65,7 @@ def experiment2():
   check_box=[] 
   f = open("static/text/salt_analysis.txt", "r")
   para= f.read()
-  f = open("static/text/groups_t.txt", "r")
+  f = open("static/text/groups_sa.txt", "r")
   groups = f.read()
   qwe=text_preprocessing.main(para)  
   apparatus = []

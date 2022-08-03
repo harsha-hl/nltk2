@@ -91,9 +91,7 @@ function decodeSentence()
     console.log(sentence_index+1)
     changeProgress((sentence_index+1)/toDisplaySentences.length*100);
     var myCanvas = document.getElementById('confetti');
-    console.log("\n\n\nDisplay sentences"+ toDisplaySentences[sentence_index]);
-    console.log("\n True or false "+ toDisplaySentences[sentence_index].includes("confirm"));
-    if(toDisplaySentences[sentence_index].includes("confirm")){               //change here
+    if(toDisplaySentences[sentence_index].includes("confirm")){               
       var myConfetti = confetti.create(myCanvas, {
         resize: true,
         useWorker: true
