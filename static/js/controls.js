@@ -14,12 +14,13 @@ img1.style.height = "auto";
   img1.style.transform = "rotate(" + deg + "deg)";
   space.appendChild(img1);
   const caption = document.createElement('p');
+  caption.setAttribute('id', 'captions');
   caption.innerText=chemical;
   caption.style.width ="auto"
   caption.style.height= "auto"
   caption.style.position = "absolute";
   caption.style.left = x + "px";
-  var caption_pos = y-30;
+  var caption_pos = y-40;
   caption.style.bottom = caption_pos+"px";
   space.appendChild(caption);
 
@@ -73,7 +74,6 @@ function randomColor(){
 
 function decodeSentence()
 {
-
 
     const voiceSelect = document.querySelector("#selectLanguages");
     const playpausebtn = document.querySelector("#playpause");
@@ -253,6 +253,7 @@ function decodeSentence()
           var y_new=sents[t].positiony;
           var hex_image_new=sents[t].colour;
           var chemical = sents[t].chemicals;
+          chemical = chemical.charAt(0).toUpperCase() + chemical.slice(1);
           console.log("Chemicals in empty sentence"+ chemical);
           
 
@@ -311,6 +312,7 @@ function decodeSentence()
                   console.log(" heyyy i am in  sentence[p].src"+sentence[p].src);
                   var hex_image=sentence[p].colour;
                   var chemical = sentence[p].chemicals;
+                  chemical = chemical.charAt(0).toUpperCase() + chemical.slice(1);
                   console.log("Chemical of sentence "+p+"is "+": "+ chemical)
                   console.log("This is hex of image"+hex_image);
                   if(sentence[p].name === 'gas')

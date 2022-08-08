@@ -12,11 +12,12 @@ from nltk import pos_tag
 from bs4 import BeautifulSoup
 
 
-anion = {'nitrate': 'nitrate', 'sulphate':'sulphate', 'phosphate':'phosphate', 'chloride':'chloride', 'carbonate':'carbonate', 'cyanide':'cyanide', 'dichromate':'dichromate','ferrocyanide':'ferrocyanide', 'hydroxide':'hydroxide'}
+anion = {'nitrate': 'nitrate', 'sulphate':'sulphate', 'phosphate':'phosphate', 'chloride':'chloride', 'carbonate':'carbonate', 'cyanide':'cyanide', 'dichromate':'dichromate','ferrocyanide':'ferrocyanide', 'hydroxide':'hydroxide', 'sulphide':'sulphide','':''}
 cation = {'copper':'copper','ferrous': 'ferrous', 'ferric':'ferric', 'sodium':'sodium', 'potassium':'potassium', 'ammonium':'ammonium', 'barium':'barium', 'strontium':'strontium','calcium':'calcium','hydrogen':'hydrogen'}
 acids={'sulphuric':'sulphuric', 'hydrochloric':'hydrochloric', 'nitric':'nitric'}
+other_chemicals = {'phenolpthalein': 'phenolpthalein'}
 
-f = open("static/text/basic_radical.txt", "r")
+f = open("static/text/titration.txt", "r")
 text= f.read()
 
 a = []
@@ -63,6 +64,7 @@ def getObjects(line):
             pass
 
         try:
+            
             chemical+= acids[i[0]]
             if temp!="":
                 chemicals[temp]=chemical+" acid"     #change
@@ -77,6 +79,19 @@ def getObjects(line):
             pass
 
         try:
+            
+            print("Here in other chemicals")
+            chemical= other_chemicals[i[0]]
+            if temp!="":
+                chemicals[temp]= chemical
+            else:
+                chemical_temp = chemical
+                print("Chemical temp later", chemical_temp)
+            chemical=""
+        except:
+            pass
+
+        try:
             chemical+=" " + anion[i[0]]
             if temp!="":
                 chemicals[temp] = chemical       #change
@@ -85,6 +100,8 @@ def getObjects(line):
             chemical=""
         except:
             pass
+
+       
 
         if i[1] == 'NN':
             if bs.find('obj', {'name':i[0]}) != None:
@@ -101,10 +118,11 @@ def getObjects(line):
                     
                     colours[i[0]] = colour_temp
                     colour_temp=""   
-
+                print("Chemical temp later", chemical_temp)
                 #if len(chemical_temp)!=0 and temp=="":     #change
                 if chemical_temp!="" and temp=="":
-                    chemicals[i[0]] = chemical_temp           
+                    chemicals[i[0]] = chemical_temp
+                    print("\n\n\nThis is chemical temp : ", chemicals[i[0]], chemical_temp)           
                 temp=i[0]
                 
                 count+=1
