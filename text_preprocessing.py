@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 
 
 anion = {'nitrate': 'nitrate', 'sulphate':'sulphate', 'phosphate':'phosphate', 'chloride':'chloride', 'carbonate':'carbonate', 'cyanide':'cyanide', 'dichromate':'dichromate','ferrocyanide':'ferrocyanide', 'hydroxide':'hydroxide', 'sulphide':'sulphide','':''}
-cation = {'copper':'copper','ferrous': 'ferrous', 'ferric':'ferric', 'sodium':'sodium', 'potassium':'potassium', 'ammonium':'ammonium', 'barium':'barium', 'strontium':'strontium','calcium':'calcium','hydrogen':'hydrogen'}
+cation = {'copper':'copper','ferrous': 'ferrous', 'ferric':'ferric', 'sodium':'sodium', 'potassium':'potassium', 'ammonium':'ammonium', 'barium':'barium', 'strontium':'strontium','calcium':'calcium','hydrogen':'hydrogen', 'silver':'silver'}
 acids={'sulphuric':'sulphuric', 'hydrochloric':'hydrochloric', 'nitric':'nitric'}
 other_chemicals = {'phenolpthalein': 'phenolpthalein'}
 
