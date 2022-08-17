@@ -187,10 +187,12 @@ function decodeSentence()
       playpausebtn.onclick = () => {
           if(synth.paused){
             synth.resume(); 
+            console.log("In resume"+synth.paused);
             playpausebtn.innerHTML = "<i class='fa-solid fa-pause'></i>";
           } 
           else{
             synth.pause(); 
+            console.log("In pause"+synth.paused);
             playpausebtn.innerHTML = "<i class='fa-solid fa-play'></i>";
           } 
       }  
