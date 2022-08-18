@@ -17,9 +17,11 @@ cation = {'copper':'copper','ferrous': 'ferrous', 'ferric':'ferric', 'sodium':'s
 acids={'sulphuric':'sulphuric', 'hydrochloric':'hydrochloric', 'nitric':'nitric'}
 other_chemicals = {'phenolpthalein': 'phenolpthalein'}
 
-f = open("static/text/titration.txt", "r")
+f = open("static/text/basic_radical.txt", "r")
 text= f.read()
-
+with open('data.xml', 'r') as f:
+        data = f.read()
+bs = BeautifulSoup(data, "xml")
 a = []
 def getObjects(line):
     line = re.sub(r"[^a-zA-Z0-9]", " ", line.lower())
@@ -32,10 +34,7 @@ def getObjects(line):
 
     tagged = pos_tag(words)   #should have been lemmed not words
     print(tagged)
-    with open('data.xml', 'r') as f:
-        data = f.read()
-    bs = BeautifulSoup(data, "xml")
-
+    
     verb_count=0
     objects =[]
     positionx={}
@@ -59,6 +58,18 @@ def getObjects(line):
     for i in tagged:
 
         try:
+            if bs.find('verb', {'name':i[0]}) != None:
+                if temp!="" and verb_count==0:
+                    verbs[temp]=i[0]
+                    verb_count+=1
+
+                elif verb_count==0:
+                    verb_temp =i[0];
+                    verb_count+=1
+        except: 
+            pass
+
+        try:
             chemical+=cation[i[0]]  
         except:
             pass
@@ -80,13 +91,13 @@ def getObjects(line):
 
         try:
             
-            print("Here in other chemicals")
+            #print("Here in other chemicals")
             chemical= other_chemicals[i[0]]
             if temp!="":
                 chemicals[temp]= chemical
             else:
                 chemical_temp = chemical
-                print("Chemical temp later", chemical_temp)
+                #print("Chemical temp later", chemical_temp)
             chemical=""
         except:
             pass
@@ -96,7 +107,7 @@ def getObjects(line):
             if temp!="":
                 chemicals[temp] = chemical       #change
             else:
-                chemical_temp = chemical        #changw
+                chemical_temp = chemical        #change
             chemical=""
         except:
             pass
@@ -141,12 +152,7 @@ def getObjects(line):
                     positiony_temp=p.get('y')
                     
 
-        if i[1][0]=='V' or i[1]=='NNS' or i[1] == 'JJ' or i[1] == 'RB':
-            if temp!="" and verb_count==0:
-                verbs[temp]=i[0]
-            elif verb_count==0:
-                verb_temp =i[0];
-            verb_count+=1
+        
 
         if i[1]=="JJ" or i[1]=='IN':
             cc = bs.find('colour', {'name':i[0]})
@@ -222,6 +228,7 @@ def main(text):
     for i in sentence:
         x=getObjects(i)
         obj.append(x)
+    #print("THE FINAL \n\n", obj)
     return obj
         
 main(text)
